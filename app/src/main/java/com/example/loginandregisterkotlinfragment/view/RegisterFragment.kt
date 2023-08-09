@@ -13,17 +13,14 @@ import com.example.loginandregisterkotlinfragment.viewModel.MainActivityVM
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var mainActivityVM: MainActivityVM
     private var map = HashMap<String, String>()
     private var bundle = Bundle()
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentRegisterBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -87,7 +84,6 @@ class RegisterFragment : Fragment() {
             false
         }
     }
-
     private fun isNotEmpty(): Boolean {
         return if (
             binding.firstName.text.isNotEmpty() &&
@@ -95,15 +91,13 @@ class RegisterFragment : Fragment() {
             binding.email.text.isNotEmpty() &&
             binding.phone.text.isNotEmpty() &&
             binding.password.text.isNotEmpty() &&
-            binding.confPass.text.isNotEmpty()
-        ){
+            binding.confPass.text.isNotEmpty()){
             true
         }else {
             Toast.makeText(requireContext(), "Fill all fields", Toast.LENGTH_SHORT).show()
             false
         }
     }
-
     private fun createFragment() {
         val fragment = AccountPageFragment()
         val ft = requireActivity().supportFragmentManager.beginTransaction()
@@ -111,6 +105,4 @@ class RegisterFragment : Fragment() {
         fragment.arguments = (bundle)
         ft.commit()
     }
-
-
 }
