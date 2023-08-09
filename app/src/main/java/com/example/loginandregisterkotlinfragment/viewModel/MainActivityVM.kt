@@ -40,12 +40,10 @@ class MainActivityVM : ViewModel() {
                 }
                 bgColor.value = "#${colorList["accentMain"].toString()}"
             }
-
             override fun onFailure(call: Call<ColorsGet?>, t: Throwable) {
                 println(t.message)
             }
         })
-
         api.getIconMainPage(KEY).enqueue(object : Callback<GetIconFromDirectory> {
             override fun onResponse(
                 call: Call<GetIconFromDirectory>, response: Response<GetIconFromDirectory>
@@ -53,21 +51,17 @@ class MainActivityVM : ViewModel() {
                 if (response.isSuccessful) {
                     icon.value = Api.IMG_BASE_URL + response.body()!!.icons.icon
                 }
-
             }
-
             override fun onFailure(call: Call<GetIconFromDirectory>, t: Throwable) {
                 println(t.message)
             }
         })
     }
-
     fun checkToken(context: Context) {
         val sharedPreferencesDataBase = SharedPreferencesDataBase(context)
         val token: String = sharedPreferencesDataBase.getToken()
         tokenIsChecked.value = token.isNotEmpty()
     }
-
     fun checkData(email: String, password: String, context: Context) {
         val sharedPreferencesDataBase = SharedPreferencesDataBase(context)
         api.loginUser(KEY, email, password).enqueue(object : Callback<UserDataModel> {
@@ -78,13 +72,11 @@ class MainActivityVM : ViewModel() {
                     println("true")
                 } else Toast.makeText(context, "Something happens", Toast.LENGTH_SHORT).show()
             }
-
             override fun onFailure(call: Call<UserDataModel>, t: Throwable) {
                 println(t.message)
             }
         })
     }
-
     fun post(context: Context) {
         val sharedPreferencesDataBase = SharedPreferencesDataBase(context)
         if (map.isNotEmpty()) {
@@ -102,25 +94,19 @@ class MainActivityVM : ViewModel() {
                         println("Error")
                     }
                 }
-
                 override fun onFailure(call: Call<UserDataModel>, t: Throwable) {
                     println(t.message)
                 }
             })
         }
     }
-
     fun getData(context: Context?) {
         val sharedPreferencesDataBase = SharedPreferencesDataBase(context!!)
         val token = sharedPreferencesDataBase.getToken()
         if (token.isNotEmpty()) {
             api.checkTokenForLogin(KEY, token).enqueue(object : Callback<UserDataInfo> {
-                override fun onResponse(
-                    call: Call<UserDataInfo>,
-                    response: Response<UserDataInfo>
-                ) {
+                override fun onResponse(call: Call<UserDataInfo>,response: Response<UserDataInfo>) {
                     if (response.isSuccessful) {
-                        response.body()
                         firstName.value = response.body()!!.userDataModel.first_name
                         lastName.value = response.body()!!.userDataModel.last_name
                         phone.value = response.body()!!.userDataModel.phone
@@ -130,14 +116,12 @@ class MainActivityVM : ViewModel() {
                         println("Error")
                     }
                 }
-
                 override fun onFailure(call: Call<UserDataInfo>, t: Throwable) {
                     println(t.message)
                 }
             })
         }
     }
-
     fun uploadImage(body: MultipartBody.Part, context: Context) {
         val sharedPreferencesDataBase = SharedPreferencesDataBase(context)
         val token = sharedPreferencesDataBase.getToken()
@@ -158,7 +142,6 @@ class MainActivityVM : ViewModel() {
             }
         })
     }
-
     fun updateUserData(map: HashMap<String, String>, context: Context) {
         val sharedPreferencesDataBase = SharedPreferencesDataBase(context)
         val token = sharedPreferencesDataBase.getToken()
@@ -178,5 +161,4 @@ class MainActivityVM : ViewModel() {
             }
         })
     }
-
 }
