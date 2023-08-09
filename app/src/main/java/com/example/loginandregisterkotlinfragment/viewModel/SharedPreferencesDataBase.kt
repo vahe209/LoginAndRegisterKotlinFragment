@@ -7,7 +7,6 @@ class SharedPreferencesDataBase (context: Context) {
     private val editor = sharedPreferences.edit()
     private lateinit var  token : String
 
-
     fun saveToken(token: String){
         editor.putString("token", token).apply()
          this.token = token
