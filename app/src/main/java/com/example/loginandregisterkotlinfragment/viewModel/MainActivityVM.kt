@@ -136,7 +136,6 @@ class MainActivityVM : ViewModel() {
                     Toast.makeText(context, "Something gone incorrect", Toast.LENGTH_SHORT).show()
                 }
             }
-
             override fun onFailure(call: Call<UserDataModel?>, t: Throwable) {
                 println(t.message)
             }
@@ -155,7 +154,6 @@ class MainActivityVM : ViewModel() {
                     Toast.makeText(context, "Data is loaded", Toast.LENGTH_SHORT).show()
                 } else println("ERROR")
             }
-
             override fun onFailure(call: Call<UserDataModel>, t: Throwable) {
                 println(t.message)
             }
