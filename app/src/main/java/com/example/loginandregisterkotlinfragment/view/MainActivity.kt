@@ -38,9 +38,6 @@ class MainActivity : AppCompatActivity(),
         fragment.arguments = (bundle)
         ft.commit()
     }
-
-
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_login -> {
@@ -57,7 +54,6 @@ class MainActivity : AppCompatActivity(),
         }
         binding.navigationContainer.closeDrawer(GravityCompat.START)
         return true
-
     }
 }
 
