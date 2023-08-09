@@ -14,7 +14,6 @@ import com.example.loginandregisterkotlinfragment.R
 import com.example.loginandregisterkotlinfragment.databinding.FragmentLoginBinding
 import com.example.loginandregisterkotlinfragment.viewModel.MainActivityVM
 
-
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var mainActivityVM: MainActivityVM
@@ -60,8 +59,6 @@ class LoginFragment : Fragment() {
         }
         }
              }
-
-
     private fun createFragment() {
         val fragment = AccountPageFragment()
         val ft = requireActivity().supportFragmentManager.beginTransaction()
