@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivityConstraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="invisible">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"  />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/icon_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ally"
+                android:textColor="@color/white"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/icon" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/email_ed_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:backgroundTint="@color/edit_text_bg_hint"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/icon_text" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/password_ed_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="@color/edit_text_bg_hint"
+                android:hint="@string/password"
+                android:inputType="textWebPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/email_ed_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/forgot_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/forgot_password"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@id/password_ed_text"
+                app:layout_constraintTop_toBottomOf="@id/password_ed_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login_wrong_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Incorrect email or password"
+                android:textColor="@color/incorrect_form_color"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/password_ed_text"
+                app:layout_constraintStart_toStartOf="@id/password_ed_text"
+                app:layout_constraintTop_toBottomOf="@id/forgot_pass" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_bg"
+                android:text="@string/login"
+                android:textColor="@color/red"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/password_ed_text"
+                app:layout_constraintStart_toStartOf="@id/password_ed_text"
+                app:layout_constraintTop_toBottomOf="@id/forgot_pass" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
