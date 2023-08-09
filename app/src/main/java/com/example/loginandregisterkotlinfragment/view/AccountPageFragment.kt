@@ -36,14 +36,10 @@ class AccountPageFragment : Fragment() {
     private var uri: Uri? = null
     var path: String? = null
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View { 
         binding = FragmentAccountPageBinding.inflate(layoutInflater, container, false)
         return binding.root
-
-
     }
 
     @SuppressLint("SuspiciousIndentation", "SetTextI18n")
@@ -72,7 +68,6 @@ class AccountPageFragment : Fragment() {
             binding.editLayout.isVisible = true
             binding.cancelChangesUserDataBtn.isVisible = true
             makeEditTextChangeable(true)
-
         }
         binding.cancelChangesUserDataBtn.setOnClickListener {
             binding.editLayout.isVisible = false
@@ -110,13 +105,11 @@ class AccountPageFragment : Fragment() {
             uploadImage()
         }
     }
-
     private fun loadImage() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         launcher.launch(intent)
     }
-
     private var launcher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -183,12 +176,10 @@ class AccountPageFragment : Fragment() {
 
     private fun uploadImage() {
         val f = File(path!!)
-        val reqFile =
-            f.asRequestBody(context?.contentResolver!!.getType(uri!!)?.toMediaTypeOrNull())
+        val reqFile =f.asRequestBody(context?.contentResolver!!.getType(uri!!)?.toMediaTypeOrNull())
         val body: MultipartBody.Part = MultipartBody.Part.createFormData("file", f.name, reqFile)
         mainActivityVM.uploadImage(body, requireContext())
     }
-
 }
 
 
